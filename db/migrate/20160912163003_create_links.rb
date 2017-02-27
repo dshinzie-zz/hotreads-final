@@ -4,10 +4,10 @@ class CreateLinks < ActiveRecord::Migration
       t.string :title
       t.string :url
       t.boolean :read, :default => false
+      t.date :send_date
 
       t.timestamps
     end
 
-    add_reference :links, :user, index: true
   end
 end
