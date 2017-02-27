@@ -18,10 +18,11 @@ ActiveRecord::Schema.define(version: 20160912163003) do
   create_table "links", force: :cascade do |t|
     t.string   "title"
     t.string   "url"
-    t.boolean  "read",       default: false
-    t.date     "send_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.boolean  "read"
+    t.integer  "lockbox_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

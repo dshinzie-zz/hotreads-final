@@ -1,18 +1,21 @@
 class Link < ApplicationRecord
 
-  def self.get_new_links
-    connection = Bunny.new({:host => "experiments.turing.io", :port => "5672", :user => "student", :pass => "PLDa{g7t4Fy@47H"})
-    # connection = Bunny.new(ENV["publisher"])
-    pubsub = Subscriber.new(connection)
+  def self.get_new_links(pubsub)
     pubsub.subscribe_to_queue
+  end
+
+  def self.send_top_links(pubsub)
+    self.top_links.each do |link|
+      link = { url: link.url }
+      pubsub.publish_to_queue(link)
+    end
   end
 
   def self.create_from_publisher(input)
     link_params = {
       title: input["title"],
       url: input["url"],
-      read: input["read"],
-      send_date: input["sent_date"]
+      read: input["read"]
     }
 
     link = new(link_params)
@@ -22,7 +25,7 @@ class Link < ApplicationRecord
     else
       puts "Error creating link"
     end
-    
+
   end
 
   def self.top_links
