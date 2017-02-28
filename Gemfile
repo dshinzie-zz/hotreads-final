@@ -22,6 +22,7 @@ gem 'figaro'
 gem 'rack-cors'
 gem 'bunny-mock'
 # gem 'unicorn'
+gem 'rails-controller-testing'
 
 # gem 'capistrano-rails', group: :development
 
