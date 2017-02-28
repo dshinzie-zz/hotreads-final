@@ -5,8 +5,6 @@ class PubSub
     connection.start
     channel = connection.create_channel
     @lockbox_to_hotreads_queue = channel.queue("ds.lockbox.to.hotreads")
-    @hotreads_to_lockbox_queue = channel.queue("ds.hotreads.to.lockbox")
-    @hotreads_to_lockbox_queue_top = channel.queue("ds.hotreads.to.lockbox.top")
   end
 
   def subscribe_to_queue
@@ -22,15 +20,4 @@ class PubSub
     sleep 2
   end
 
-  def publish_to_queue(link)
-    puts "Publishing Top Ten Link: #{link}"
-
-    hotreads_to_lockbox_queue.publish(link.to_json)
-  end
-
-  def publish_to_queue_top(link)
-    puts "Publishing Top Link: #{link}"
-
-    hotreads_to_lockbox_queue_top.publish(link.to_json)
-  end
 end

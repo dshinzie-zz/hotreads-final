@@ -4,17 +4,6 @@ class Link < ApplicationRecord
     pubsub.subscribe_to_queue
   end
 
-  def self.send_top_links(pubsub)
-    top_link = self.top_links.first
-    link = { url: top_link.url }
-    pubsub.publish_to_queue_top(link)
-
-    self.top_links.each do |link|
-      link = { url: link.url }
-      pubsub.publish_to_queue(link)
-    end
-  end
-
   def self.create_from_publisher(input)
     link_params = {
       title: input["title"],

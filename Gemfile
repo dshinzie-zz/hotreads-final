@@ -19,6 +19,7 @@ gem 'react-rails'
 gem 'sprockets-es6'
 gem 'bunny'
 gem 'figaro'
+gem 'rack-cors'
 # gem 'unicorn'
 
 # gem 'capistrano-rails', group: :development

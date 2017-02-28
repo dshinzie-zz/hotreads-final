@@ -11,7 +11,6 @@ class LinksController < ApplicationController
       pubsub = PubSub.new(connection)
 
       Link.get_new_links(pubsub)
-      Link.send_top_links(pubsub)
     end
 
 end
