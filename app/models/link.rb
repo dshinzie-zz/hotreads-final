@@ -5,6 +5,10 @@ class Link < ApplicationRecord
   end
 
   def self.send_top_links(pubsub)
+    top_link = self.top_links.first
+    link = { url: top_link.url }
+    pubsub.publish_to_queue_top(link)
+
     self.top_links.each do |link|
       link = { url: link.url }
       pubsub.publish_to_queue(link)
@@ -35,4 +39,5 @@ class Link < ApplicationRecord
     .order("link_count DESC")
     .limit(10)
   end
+
 end
