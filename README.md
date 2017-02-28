@@ -2,6 +2,8 @@
 
 HotReads is a index of the most popular links that are coming from application UrlLockbox. The site will aggregate the top 10 links over the past 24 hours.
 
+Production link: https://fierce-sands-45316.herokuapp.com/
+
 ## Functionality
 ### Index
 HotReads is connected to UrlLockbox through a message queue. As links are marked as read from the third party site, a new Link record is created in HotReads.
