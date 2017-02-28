@@ -20,6 +20,7 @@ gem 'sprockets-es6'
 gem 'bunny'
 gem 'figaro'
 gem 'rack-cors'
+gem 'bunny-mock'
 # gem 'unicorn'
 
 # gem 'capistrano-rails', group: :development

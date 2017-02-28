@@ -1,5 +1,5 @@
 class PubSub
-  attr_reader :lockbox_to_hotreads_queue, :hotreads_to_lockbox_queue, :hotreads_to_lockbox_queue_top
+  attr_reader :lockbox_to_hotreads_queue
 
   def initialize(connection)
     connection.start
