@@ -18,7 +18,8 @@ class Link < ApplicationRecord
     else
       puts "Error creating link"
     end
-
+    
+    return link
   end
 
   def self.top_links
