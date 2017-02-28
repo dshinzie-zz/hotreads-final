@@ -20,3 +20,15 @@ Top Ten Links:
 ```
 
 Endpoints will return as JSON and will display the URL for the endpoints.
+
+## Testing
+Message queues were mocked through BunnyMock. 
+
+## Technology
+The application is currently using the following technlogies:
+
+* Server: Ruby On Rails 5.0.1
+* Client-side: ERB
+* Database: PostgreSQL
+* Libraries: JQuery, BunnyMQ
+
